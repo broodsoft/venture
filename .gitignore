@@ -1,3 +1,3 @@
-bin
-./gen
-./tmp
+/bin
+/gen
+/tmp
