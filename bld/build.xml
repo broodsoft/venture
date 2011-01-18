@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<project name="jpa2_demo" default="compile" basedir="..">
+	<property name="src.dir" location="src" description="Java sources" />
+	<property name="gen.dir" location="gen" description="Generated sources" />
+	<property name="tst.dir" location="tst" description="Java sources for tests" />
+
+	<property name="cfg.dir" location="cfg" description="Configuration files" />
+	<property name="dat.dir" location="dat" description="Data files" />
+
+	<property name="bin.dir" location="bin" description="Directory into which Java sources are compiled" />
+	<property name="tmp.dir" location="tmp" description="Temporary directory (shouldn't contain any files the content of which can't be inferred, i.e. the directory is 'unsafe')" />
+	<property name="stg.dir" location="stg" description="Staging directory (if, for example, a WAR file needs to be built" />
+	<property name="out.dir" location="out" description="Directory to contain any output files (e.g. test results)" />
+
+	<property name="lib.dir" location="lib" description="Directory to keep JAR (and possibly other) library" />
+	<property name="lib.gen.dir" location="${lib.dir}/gen" description="Directory that contains libraries used for generating Java sources" />
+	<property name="lib.bld.dir" location="${lib.dir}/bld" description="Directory that contains libraries used during compilation" />
+	<property name="lib.tst.dir" location="${lib.dir}/tst" description="Directory that contains libraries used during testing" />
+	<property name="lib.src.dir" location="${lib.dir}/src" description="Directory that contains sources for desired libraries" />
+
+	<property name="jar.name" value="${basedir}/${ant.project.name}.jar" />
+
+	<property name="testng.jar" location="${lib.tst.dir}/testng.jar" />
+	<taskdef resource="testngtasks" classpath="${testng.jar}" />
+
+	<path id="build.path">
+		<fileset dir="${lib.bld.dir}" />
+	</path>
+	<path id="generate.path">
+		<fileset dir="${lib.gen.dir}" />
+		<path refid="build.path" />
+	</path>
+	<path id="test.path">
+		<fileset dir="${lib.tst.dir}" />
+		<pathelement location="${bin.dir}" />
+		<path refid="build.path" />
+	</path>
+
+	<target name="compile" description="Compile the Java sources">
+		<mkdir dir="${tmp.dir}/src" />
+		<copy todir="${tmp.dir}/src">
+			<fileset dir="${gen.dir}" />
+			<fileset dir="${src.dir}" />
+		</copy>
+		<javac
+			srcdir="${tmp.dir}/src"
+			destdir="${bin.dir}"
+			classpathref="build.path"
+			includeantruntime="false"
+		/>
+		<delete>
+			<fileset dir="${bin.dir}" includes="**/*.java" />
+		</delete>
+		<delete dir="${tmp.dir}/src" />
+		<copy todir="${bin.dir}" file="${cfg.dir}/log4j.properties" />
+		<copy todir="${bin.dir}/META-INF" file="${cfg.dir}/persistence.xml" />
+	</target>
+	<target name="generate-sources" depends="clean-gen" description="Generate required Java sources">
+		<javac
+			srcdir="${src.dir}"
+			destdir="${gen.dir}"
+			classpathref="generate.path"
+			failonerror="false"
+			fork="true"
+			includeantruntime="false">
+				<compilerarg value="-proc:only"/>
+		</javac>
+	</target>
+	<target name="stage" depends="compile">
+		
+	</target>
+	<target name="jar" depends="compile">
+		<jar destfile="${jar.name}" basedir="${bin.dir}">
+			<fileset dir="${lib.dir}" includes="*.jar" />
+			<manifest>
+				<attribute name="Created-By" value="Drazzle Bay" />
+			</manifest>
+		</jar>
+	</target>
+	<target name="test" depends="compile">
+		<javac srcdir="${tst.dir}" destdir="${bin.dir}" classpathref="test.path" includeantruntime="false" />
+	    <testng classpathref="test.path" outputdir="${out.dir}">
+	        <xmlfileset dir="${tst.dir}" includes="testng.xml" />
+	    </testng>
+	</target>
+	<target name="clean" depends="clean-stg,clean-gen">
+		<delete dir="${bin.dir}" />
+		<mkdir  dir="${bin.dir}" />
+
+		<delete dir="${tmp.dir}" />
+		<mkdir  dir="${tmp.dir}"/>
+
+		<delete dir="${out.dir}" />
+		<mkdir  dir="${out.dir}" />
+	</target>
+	<target name="clean-stg">
+		<delete dir="${stg.dir}" />
+		<mkdir  dir="${stg.dir}" />
+	</target>
+	<target name="clean-gen">
+		<delete dir="${gen.dir}" />
+		<mkdir  dir="${gen.dir}" />
+	</target>
+</project>

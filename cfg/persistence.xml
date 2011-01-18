@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!-- Persistence deployment descriptor for dev profile -->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+
+	<persistence-unit name="JPA2DemoPU">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/comprehensive_jpa_demo"/>
+			<property name="javax.persistence.jdbc.user" value="cqd"/>
+			<property name="javax.persistence.jdbc.password" value="demo"/>
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
+		</properties>
+	</persistence-unit>
+</persistence>
+
+<!--
+create database comprehensive_jpa_demo;
+grant all on comprehensive_jpa_demo.* to 'cqd'@'localhost' identified by 'demo';
+
+use comprehensive_jpa_demo;
+drop table phone_book;
+drop table phone_number;
+drop table roster_athlete;
+drop table roster;
+drop table team;
+drop table athlete;
+drop table student;
+drop table person;
+drop table address;
+-->

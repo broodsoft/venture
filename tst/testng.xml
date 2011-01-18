@@ -1,0 +1,7 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd">
+<suite name="common">
+	<test name="main">
+		<classes>
+		</classes>
+	</test>
+</suite>
