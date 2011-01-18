@@ -10,8 +10,14 @@ import java.util.Collection;
 import com.broodsoft.brew.db.jpa.JPAStatement;
 import com.broodsoft.brew.doc.CodeAuthor;
 import com.broodsoft.venture.jpa.manager.PersonManager;
-import com.broodsoft.venture.jpa.model.*;
-import com.broodsoft.venture.jpa.model.school.*;
+import com.broodsoft.venture.jpa.model.Address;
+import com.broodsoft.venture.jpa.model.Name;
+import com.broodsoft.venture.jpa.model.Person;
+import com.broodsoft.venture.jpa.model.PhoneNumber;
+import com.broodsoft.venture.jpa.model.school.Athlete;
+import com.broodsoft.venture.jpa.model.school.Roster;
+import com.broodsoft.venture.jpa.model.school.Student;
+import com.broodsoft.venture.jpa.model.school.Team;
 
 @CodeAuthor(first = "Drazzle", last = "Bay")
 public class JPA2Demo

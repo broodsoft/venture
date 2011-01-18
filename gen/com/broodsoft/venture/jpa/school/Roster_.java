@@ -4,7 +4,6 @@ import com.broodsoft.venture.jpa.model.school.Athlete;
 import com.broodsoft.venture.jpa.model.school.Roster;
 import com.broodsoft.venture.jpa.model.school.Team;
 import com.broodsoft.venture.jpa.model.school.Roster.Type;
-
 import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;

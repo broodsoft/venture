@@ -3,7 +3,6 @@ package com.broodsoft.venture.jpa;
 import com.broodsoft.venture.jpa.model.Person;
 import com.broodsoft.venture.jpa.model.PhoneNumber;
 import com.broodsoft.venture.jpa.model.PhoneNumber.Category;
-
 import javax.persistence.metamodel.SetAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;

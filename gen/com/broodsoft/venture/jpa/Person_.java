@@ -6,7 +6,6 @@ import com.broodsoft.venture.jpa.model.Name;
 import com.broodsoft.venture.jpa.model.Person;
 import com.broodsoft.venture.jpa.model.PhoneNumber;
 import com.broodsoft.venture.jpa.model.PhoneNumber.Category;
-
 import java.util.Date;
 import javax.persistence.metamodel.MapAttribute;
 import javax.persistence.metamodel.SingularAttribute;
