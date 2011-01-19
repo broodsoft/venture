@@ -10,9 +10,7 @@ import javax.persistence.criteria.Root;
 
 import com.broodsoft.brew.db.jpa.JPAQueryAdapter;
 import com.broodsoft.brew.doc.CodeAuthor;
-import com.broodsoft.venture.jpa.*;
-import com.broodsoft.venture.jpa.model.Person;
-import com.broodsoft.venture.jpa.model.PhoneNumber;
+import com.broodsoft.venture.jpa.model.*;
 
 @CodeAuthor(first = "Drazzle", last = "Bay")
 public class PersonManager extends JPAQueryAdapter
