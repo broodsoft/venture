@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="venture" default="compile" basedir="..">
+<project name="venture-hsqldb" default="compile" basedir="..">
 	<property name="src.dir" location="src" description="Java sources" />
 	<property name="gen.dir" location="gen" description="Generated sources" />
 	<property name="tst.dir" location="tst" description="Java sources for tests" />
