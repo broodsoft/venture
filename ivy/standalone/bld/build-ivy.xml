@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="ivy" default="initialize" basedir=".">
+    <condition property="ivy.home" value="${env.IVY_HOME}">
+		<isset property="env.IVY_HOME" />
+    </condition>
+	<property name="ivy.home" location="${ivy.home.rel}" />
+	<echo message="IVY home: ${ivy.home}" />
+
+	<target name="initialize" depends="download">
+		<path id="ivy.lib.path">
+			<fileset dir="${ivy.jar.dir}" includes="*.jar"/>
+		</path>
+		<taskdef
+			resource="org/apache/ivy/ant/antlib.xml"
+			uri="antlib:org.apache.ivy.ant"
+			classpathref="ivy.lib.path"
+		/>
+	</target>
+
+    <target name="download">
+        <mkdir dir="${ivy.jar.dir}"/>
+		<get
+			src="http://repo2.maven.org/maven2/org/apache/ivy/ivy/${ivy.version}/ivy-${ivy.version}.jar"
+			dest="${ivy.jar.file}"
+			usetimestamp="true"
+		/>
+    </target>
+</project>

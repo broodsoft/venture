@@ -1,0 +1,6 @@
+<ivy-module version="2.0">
+    <info organisation="com.broodsoft" module="brew" revision="working@SCHL-ANDREYY" status="integration" publication="20110929172009"/>
+    <dependencies>
+        <dependency org="commons-io" name="commons-io" rev="2.0.1"/>
+    </dependencies>
+</ivy-module>

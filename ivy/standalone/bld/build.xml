@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<project
+	xmlns:ivy="antlib:org.apache.ivy.ant"
+
+	name="ivy-standalone"
+	basedir="."
+	default="resolve-dependencies"
+>
+	<property file="build.properties" />
+	<include file="${ivy.xml}" as="ivy" />
+
+	<path id="dev.path" />
+
+	<target name="resolve-dependencies" depends="ivy.initialize">
+		<ivy:cachepath pathid="dev.path" />
+	</target>
+</project>

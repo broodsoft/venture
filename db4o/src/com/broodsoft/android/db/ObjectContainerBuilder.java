@@ -90,6 +90,7 @@ public class ObjectContainerBuilder implements Builder<ObjectContainer>
 		if(doAutoReset)
 			reset();
 
+		configuration = null;
 		return db;
 	}
 

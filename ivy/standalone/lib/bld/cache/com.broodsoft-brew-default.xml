@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="com.broodsoft"
+		module="brew"
+		revision="working@SCHL-ANDREYY"
+		conf="default"
+		confs="default"
+		date="20110929173124"/>
+	<dependencies>
+		<module organisation="commons-io" name="commons-io">
+			<revision name="2.0.1" status="release" pubdate="20101226121931" resolver="public" artresolver="main" homepage="http://commons.apache.org/io/" downloaded="false" searched="false" default="false" conf="system, default, optional, compile, *, provided, runtime, javadoc, sources, master" position="0">
+				<metadata-artifact status="no" details="" size="6490" time="0" location="C:\Users\andreyam\Development\Git\brew-ivy\lib\bld\cache\commons-io\commons-io\ivy-2.0.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/commons-io/commons-io/2.0.1/commons-io-2.0.1.pom"/>
+				<caller organisation="com.broodsoft" name="brew" conf="default" rev="2.0.1" rev-constraint-default="2.0.1" rev-constraint-dynamic="2.0.1" callerrev="working@SCHL-ANDREYY"/>
+				<artifacts>
+					<artifact name="commons-io" type="jar" ext="jar" status="no" details="" size="159509" time="0" location="C:\Users\andreyam\Development\Git\brew-ivy\lib\bld\cache\commons-io\commons-io\jars\commons-io-2.0.1.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar"/>
+					</artifact>
+					<artifact name="commons-io" type="javadoc" ext="jar" extra-classifier="javadoc" status="no" details="" size="1099801" time="0" location="C:\Users\andreyam\Development\Git\brew-ivy\lib\bld\cache\commons-io\commons-io\javadocs\commons-io-2.0.1-javadoc.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/commons-io/commons-io/2.0.1/commons-io-2.0.1-javadoc.jar"/>
+					</artifact>
+					<artifact name="commons-io" type="source" ext="jar" extra-classifier="sources" status="no" details="" size="232877" time="0" location="C:\Users\andreyam\Development\Git\brew-ivy\lib\bld\cache\commons-io\commons-io\sources\commons-io-2.0.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

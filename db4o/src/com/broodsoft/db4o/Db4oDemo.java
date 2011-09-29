@@ -60,7 +60,6 @@ public class Db4oDemo
 	{
 		Query query = db.query();
 		query.constrain(Person.class);
-//		query.descend("last").constrain("Marsh");
 		query.descend("address").descend("state").constrain("CO");
 		ObjectSet<Person> results = query.execute();
 		for(Person result : results)
