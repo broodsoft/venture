@@ -16,8 +16,8 @@ public class Launcher
 
 	public static void main(String... args)
 	{
-//		emf = Persistence.createEntityManagerFactory("FileDB_PU");
-		emf = Persistence.createEntityManagerFactory("InMemoryDB_PU");
+		emf = Persistence.createEntityManagerFactory("FileDB_PU");
+//		emf = Persistence.createEntityManagerFactory("InMemoryDB_PU");
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 		tx.begin();

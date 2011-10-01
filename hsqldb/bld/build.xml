@@ -38,6 +38,8 @@
 
 	<target name="compile" description="Compile the Java sources">
 		<mkdir dir="${tmp.dir}/src" />
+		<mkdir dir="${gen.dir}/src" />
+		<mkdir dir="${bin.dir}/src" />
 		<copy todir="${tmp.dir}/src">
 			<fileset dir="${gen.dir}" />
 			<fileset dir="${src.dir}" />
