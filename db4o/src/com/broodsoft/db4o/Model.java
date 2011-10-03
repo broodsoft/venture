@@ -1,11 +1,11 @@
 package com.broodsoft.db4o;
 
-import com.broodsoft.android.db.Id;
 import com.broodsoft.brew.Unique;
+import com.broodsoft.brew.db.db4o.Db4oId;
 
 public abstract class Model implements Unique<Integer>
 {
-	@Id
+	@Db4oId
 	private int id;
 
 	@Override

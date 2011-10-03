@@ -1,4 +1,4 @@
-package com.broodsoft.android.db;
+package com.broodsoft.brew.db.db4o;
 
 import com.broodsoft.brew.generator.DataGenerator;
 import com.db4o.ObjectContainer;
@@ -44,7 +44,7 @@ public final class Db4oIdGeneratorRegistry implements IdGeneratorRegistry
 
 		EventRegistry eventRegistry = EventRegistryFactory.forObjectContainer(db);
 		eventRegistry.creating().addListener(new Db4oIdAutoSetter<CancellableObjectEventArgs>(delegate));
-		eventRegistry.committing().addListener(new Db4oAutoPersister<IdGeneratorRegistry,CommitEventArgs>(db ,delegate, 3));
+		eventRegistry.committing().addListener(new Db4oAutoPersister<IdGeneratorRegistry,CommitEventArgs>(db, delegate, 3));
 	}
 
 	public <T> boolean isRegistered(Class<T> type){ return delegate.isRegistered(type); }

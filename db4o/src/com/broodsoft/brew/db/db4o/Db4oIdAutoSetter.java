@@ -1,5 +1,6 @@
-package com.broodsoft.android.db;
+package com.broodsoft.brew.db.db4o;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
 import com.broodsoft.brew.generator.DataGenerator;
@@ -12,16 +13,18 @@ public class Db4oIdAutoSetter<T extends ObjectEventArgs> implements EventListene
 {
 	protected IdGeneratorRegistry idGeneratorRegistry;
 	protected IdGeneratorFactory idGeneratorFactory;
+	protected Class<? extends Annotation> idIndicator;
 
 	public Db4oIdAutoSetter(IdGeneratorRegistry idGeneratorRegistry)
 	{
-		this(idGeneratorRegistry, new DefaultIdGeneratorFactory());
+		this(idGeneratorRegistry, new DefaultIdGeneratorFactory(), Db4oId.class);
 	}
 	
-	public Db4oIdAutoSetter(IdGeneratorRegistry idGeneratorRegistry, IdGeneratorFactory idGeneratorFactory)
+	public Db4oIdAutoSetter(IdGeneratorRegistry idGeneratorRegistry, IdGeneratorFactory idGeneratorFactory, Class<? extends Annotation> idIndicator)
 	{
 		this.idGeneratorRegistry = idGeneratorRegistry;
 		this.idGeneratorFactory = idGeneratorFactory;
+		this.idIndicator = idIndicator;
 	}
 
 	@Override
@@ -29,7 +32,7 @@ public class Db4oIdAutoSetter<T extends ObjectEventArgs> implements EventListene
 	{
 		Object object = args.object();
 		Class<?> type = object.getClass();
-		Field idField = AnnotationUtils.searchDepthFirstForAnnotatedField(type, Id.class);
+		Field idField = AnnotationUtils.searchDepthFirstForAnnotatedField(type, idIndicator);
 		if(idField != null)
 		{
 			Object id = generateId(type, idField.getType());

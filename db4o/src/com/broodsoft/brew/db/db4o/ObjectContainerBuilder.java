@@ -1,4 +1,4 @@
-package com.broodsoft.android.db;
+package com.broodsoft.brew.db.db4o;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -73,7 +73,9 @@ public class ObjectContainerBuilder implements Builder<ObjectContainer>
 	{
 		if(indexIndicators != null)
 		{
-			Reflections r = new Reflections("", new FieldAnnotationsScanner());
+//			throw new UnsupportedOperationException();
+			System.out.println(Thread.currentThread().getContextClassLoader().getClass().getPackage().getName());
+			Reflections r = new Reflections(Thread.currentThread().getContextClassLoader().getClass().getPackage().getName(), new FieldAnnotationsScanner());
 			for(Class<? extends Annotation> indexIndicator : indexIndicators)
 			{
 				Set<Field> indexedFields = r.getFieldsAnnotatedWith(indexIndicator);

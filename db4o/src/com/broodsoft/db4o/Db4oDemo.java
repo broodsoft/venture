@@ -4,9 +4,9 @@ import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import com.broodsoft.android.db.AutoConnectingObjectContainer;
-import com.broodsoft.android.db.Id;
-import com.broodsoft.android.db.ObjectContainerBuilder;
+import com.broodsoft.brew.db.db4o.AutoConnectingObjectContainer;
+import com.broodsoft.brew.db.db4o.Db4oId;
+import com.broodsoft.brew.db.db4o.ObjectContainerBuilder;
 import com.broodsoft.db4o.Person.Sex;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
@@ -33,7 +33,7 @@ public class Db4oDemo
 	{
 		ObjectContainerBuilder builder = new ObjectContainerBuilder(false)
 			.writeTo(dbFilepath)
-			.index(Id.class)
+			.index(Db4oId.class)
 			.autoManageIds();
 		AutoConnectingObjectContainer db = new AutoConnectingObjectContainer(builder.build(), builder);
 		db.setDoAutoCommit(true);

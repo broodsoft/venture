@@ -1,4 +1,4 @@
-package com.broodsoft.android.db;
+package com.broodsoft.brew.db.db4o;
 
 import static java.lang.annotation.ElementType.FIELD;
 
@@ -11,7 +11,7 @@ import com.broodsoft.brew.doc.CodeAuthor;
 @Target({FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @CodeAuthor(first = "Drazzle", last = "Bay")
-public @interface Id
+public @interface Db4oId
 {
 	
 }

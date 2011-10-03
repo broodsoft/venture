@@ -1,4 +1,4 @@
-package com.broodsoft.android.db;
+package com.broodsoft.brew.db.db4o;
 
 import com.broodsoft.brew.generator.DataGenerator;
 

@@ -1,4 +1,4 @@
-package com.broodsoft.android.db;
+package com.broodsoft.brew.db.db4o;
 
 import com.db4o.ObjectContainer;
 import com.db4o.events.Event4;
